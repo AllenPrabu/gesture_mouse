@@ -1,0 +1,19 @@
+# Python Virtual Environment
+venv/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# PyInstaller Build Artifacts
+dist/
+build/
+*.spec
+
+# VS Code IDE folder
+.vscode/
+
+# GazeTracking Model File (Large File)
+# Optional: It's good practice to not upload large model files.
+# Instead, tell users to download it in your README.
+shape_predictor_68_face_landmarks.dat
