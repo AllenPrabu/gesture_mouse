@@ -51,8 +51,7 @@ Gesture OS is a Python-based application that lets you control your mouse, switc
 
 If you don't want to install Python or dependencies, you can simply download the pre-built Windows executable:
 
-- [Download Gesture OS .exe](#)  
-  *([Replace this link with your actual download location, e.g., Google Drive, Dropbox, or GitHub Releases](https://drive.google.com/file/d/1erzvOf5C6yWHpn07CxnKr8Fg5fqgUy_P/view?usp=sharing))*
+- [Download Gesture OS .exe](https://drive.google.com/file/d/1erzvOf5C6yWHpn07CxnKr8Fg5fqgUy_P/view?usp=sharing)  
 
 Just download and run the `.exe` file. No installation required!
 
