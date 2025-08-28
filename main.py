@@ -60,20 +60,82 @@ def listen_for_commands(state):
 
                     if text.startswith("computer"):
                         command = text.replace("computer", "").strip()
-                        if command == "press enter" or command == "enter":
-                            mouse.press(button='left')
-                            mouse.release(button='left')
-                            state['status_text'] = "Computer: Enter (simulated left click)"
+                        if command in ["press enter", "enter"]:
+                            keyboard.press_and_release('enter')
+                            state['status_text'] = "Computer: Enter"
                         elif command == "backspace":
-                            state['status_text'] = "Computer: Backspace (not supported)"
+                            keyboard.press_and_release('backspace')
+                            state['status_text'] = "Computer: Backspace"
                         elif command == "clear":
-                            state['status_text'] = "Computer: Clear (not supported)"
+                            # Select all and delete (simulate clear)
+                            keyboard.press_and_release('ctrl+a')
+                            keyboard.press_and_release('backspace')
+                            state['status_text'] = "Computer: Clear"
                         elif command == "stop listening":
                             state['status_text'] = "Computer Inactive"
+                        # elif command == "tab":
+                        #     keyboard.press_and_release('tab')
+                        #     state['status_text'] = "Computer: Tab"
+                        # elif command == "space":
+                        #     keyboard.press_and_release('space')
+                        #     state['status_text'] = "Computer: Space"
+                        elif command == "copy":
+                            keyboard.press_and_release('ctrl+c')
+                            state['status_text'] = "Computer: Copy"
+                        elif command == "paste":
+                            keyboard.press_and_release('ctrl+v')
+                            state['status_text'] = "Computer: Paste"
+                        elif command == "cut":
+                            keyboard.press_and_release('ctrl+x')
+                            state['status_text'] = "Computer: Cut"
+                        elif command == "select all":
+                            keyboard.press_and_release('ctrl+a')
+                            state['status_text'] = "Computer: Select All"
+                        elif command == "undo":
+                            keyboard.press_and_release('ctrl+z')
+                            state['status_text'] = "Computer: Undo"
+                        elif command == "redo":
+                            keyboard.press_and_release('ctrl+y')
+                            state['status_text'] = "Computer: Redo"
+                        elif command == "save":
+                            keyboard.press_and_release('ctrl+s')
+                            state['status_text'] = "Computer: Save"
+                        elif command == "close":
+                            keyboard.press_and_release('alt+f4')
+                            state['status_text'] = "Computer: Close Window"
+                        elif command == "new tab":
+                            keyboard.press_and_release('ctrl+t')
+                            state['status_text'] = "Computer: New Tab"
+                        elif command == "close tab":
+                            keyboard.press_and_release('ctrl+w')
+                            state['status_text'] = "Computer: Close Tab"
+                        elif command == "switch tab":
+                            keyboard.press_and_release('ctrl+tab')
+                            state['status_text'] = "Computer: Switch Tab"
+                        elif command == "previous tab":
+                            keyboard.press_and_release('ctrl+shift+tab')
+                            state['status_text'] = "Computer: Previous Tab"
+                        elif command == "refresh":
+                            keyboard.press_and_release('f5')
+                            state['status_text'] = "Computer: Refresh"
+                        elif command == "open":
+                            keyboard.press_and_release('ctrl+o')
+                            state['status_text'] = "Computer: Open"
+                        elif command == "print":
+                            keyboard.press_and_release('ctrl+p')
+                            state['status_text'] = "Computer: Print"
+                        elif command == "find":
+                            keyboard.press_and_release('ctrl+f')
+                            state['status_text'] = "Computer: Find"
+                        elif command == "esc" or command == "escape":
+                            keyboard.press_and_release('esc')
+                            state['status_text'] = "Computer: Escape"
                         else:
                             state['status_text'] = "Unknown Command"
                     else:
-                        state['status_text'] = "Typing not supported"
+                        # Type out the recognized text using keyboard
+                        keyboard.write(text)
+                        state['status_text'] = "Typed: " + text
                     
                     state['listening_active'] = False
 
