@@ -2,8 +2,10 @@
 # This file contains the essential settings for the gesture control application.
 
 # --- MOUSE CONTROL ---
-SMOOTHING_FACTOR = 4      # Lower value = more responsive, higher = smoother. (2-5 is a good range)
+SMOOTHING_FACTOR = 3     # Lower value = more responsive, higher = smoother. (2-5 is a good range)
 SENSITIVITY_PADDING = 200 # Pixels from the edge of the frame to ignore. Lower value = more sensitive.
+SCROLL_SPEED = 0.05  # Lower = slower scroll, Higher = faster scroll (try 0.1 to 1.0)
+
 
 # --- GESTURE THRESHOLDS ---
 CLICK_DISTANCE_THRESHOLD = 30.0 # The max distance between finger tips to register a pinch/click.
